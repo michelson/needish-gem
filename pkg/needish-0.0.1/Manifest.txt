@@ -6,6 +6,12 @@ README.txt
 Rakefile
 lib/needish.rb
 lib/needish/version.rb
+lib/needish/base.rb
+lib/needish/easy_class_maker.rb
+lib/needish/friend.rb
+lib/needish/help.rb
+lib/needish/need.rb
+lib/needish/user.rb
 test/test_helper.rb
 test/test_needish.rb
 
