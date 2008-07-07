@@ -9,9 +9,14 @@ This Gems provides basic methods to access the Nedish.com api
 == FEATURES/PROBLEMS:
 
 lists the user profile, user friends , needs and helps from a need
+sends needs, helps
 
 -problems.
 no detected yet!
+
+-todo
+search methods
+make friends etc..
 
 == SYNOPSIS:
 
@@ -65,7 +70,11 @@ sudo gem install hpricot
 
 to install this gem simply do :
 
-sudo gem install needish
+git clone git://github.com/michelson/needish-gem.git  
+
+cd needish-gem
+
+sudo install gem pkg/needish-0.0.1.gem
 
 == LICENSE:
 
