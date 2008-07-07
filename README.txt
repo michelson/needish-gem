@@ -23,9 +23,9 @@ make friends etc..
 *examples
 
 login to needish
-pass to login user and pass
+pass to login user and pass AND apikey!! (since 0.0.2)
 
-<pre>login =  Needish::Base.new('miguelmichelson@gmail.com','********')</pre>
+<pre>login =  Needish::Base.new('miguelmichelson@gmail.com','********' ,'apikey2234455566')</pre>
 
 obtain the user logged data
 
