@@ -11,8 +11,6 @@ module Needish
   class Base
     # Needish's url, duh!
     @@api_url   = 'api.needish.com'
-    @@apikey ='?app_key=5eb51b04c7146c445e438d48c705b63f'
-    
     # Timelines exposed by the needish api
     @@timelines = [:friends, :public, :user]
     
@@ -21,10 +19,11 @@ module Needish
     end
     
     # Initializes the configuration for making requests to needish
-    def initialize(email, password)
-      @config, @config[:email], @config[:password] = {}, email, password
+    def initialize(email, password, apikey)
+      @config, @config[:email], @config[:password],@config[:apikey] = {}, email, password,"?app_key=#{apikey}"
     end
     
+   
     
    #returns user data information
     def me
@@ -84,7 +83,7 @@ module Needish
 
    # http://api.needish.com/needs/add.format
      def add_need(subject, text)
-        url = URI.parse("http://#{@@api_url}/needs/add.xml#{@@apikey}")
+        url = URI.parse("http://#{@@api_url}/needs/add.xml#{@config[:apikey]}")
        req = Net::HTTP::Post.new(url.path)
 
         req.basic_auth(@config[:email], @config[:password])
@@ -98,8 +97,8 @@ module Needish
       # Post a new Need for the authenticating user.
       
       def add_help(id, text)
-         url = URI.parse("http://#{@@api_url}/helps/add/#{id}.xml#{@@apikey}")
-         req = Net::HTTP::Post.new(url.path+@@apikey)
+         url = URI.parse("http://#{@@api_url}/helps/add/#{id}.xml#{@config[:apikey]}")
+         req = Net::HTTP::Post.new(url.path+@config[:apikey])
 
          req.basic_auth(@config[:email], @config[:password])
          req.set_form_data({'text' => text})
@@ -175,7 +174,7 @@ module Needish
         options.reverse_merge!({:headers => { "User-Agent" => @config[:email] }})
         begin
           response = Net::HTTP.start(@@api_url, 80) do |http|
-              req = Net::HTTP::Get.new('/' + path+@@apikey, options[:headers])
+              req = Net::HTTP::Get.new('/' + path+@config[:apikey], options[:headers])
               req.basic_auth(@config[:email], @config[:password]) if options[:auth]
               http.request(req)
           end
