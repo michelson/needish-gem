@@ -1,0 +1,10 @@
+== 0.0.2 2008-07-05
+
+* 1 major enhancement:
+  * @@apikey desapears
+		*The apikey passes to the method initialize, now is not a global variable, (security issues)
+
+== 0.0.1 2008-07-05
+
+* 1 major enhancement:
+  * Initial release
