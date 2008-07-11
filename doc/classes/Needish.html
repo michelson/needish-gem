@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Needish</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Needish</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/needish/base_rb.html">
+                lib/needish/base.rb
+                </a>
+        <br />
+                <a href="../files/lib/needish/easy_class_maker_rb.html">
+                lib/needish/easy_class_maker.rb
+                </a>
+        <br />
+                <a href="../files/lib/needish/friend_rb.html">
+                lib/needish/friend.rb
+                </a>
+        <br />
+                <a href="../files/lib/needish/help_rb.html">
+                lib/needish/help.rb
+                </a>
+        <br />
+                <a href="../files/lib/needish/need_rb.html">
+                lib/needish/need.rb
+                </a>
+        <br />
+                <a href="../files/lib/needish/user_rb.html">
+                lib/needish/user.rb
+                </a>
+        <br />
+                <a href="../files/lib/needish/version_rb.html">
+                lib/needish/version.rb
+                </a>
+        <br />
+                <a href="../files/pkg/needish-0_0_3/lib/needish/base_rb.html">
+                pkg/needish-0.0.3/lib/needish/base.rb
+                </a>
+        <br />
+                <a href="../files/pkg/needish-0_0_3/lib/needish/easy_class_maker_rb.html">
+                pkg/needish-0.0.3/lib/needish/easy_class_maker.rb
+                </a>
+        <br />
+                <a href="../files/pkg/needish-0_0_3/lib/needish/friend_rb.html">
+                pkg/needish-0.0.3/lib/needish/friend.rb
+                </a>
+        <br />
+                <a href="../files/pkg/needish-0_0_3/lib/needish/help_rb.html">
+                pkg/needish-0.0.3/lib/needish/help.rb
+                </a>
+        <br />
+                <a href="../files/pkg/needish-0_0_3/lib/needish/need_rb.html">
+                pkg/needish-0.0.3/lib/needish/need.rb
+                </a>
+        <br />
+                <a href="../files/pkg/needish-0_0_3/lib/needish/user_rb.html">
+                pkg/needish-0.0.3/lib/needish/user.rb
+                </a>
+        <br />
+                <a href="../files/pkg/needish-0_0_3/lib/needish/version_rb.html">
+                pkg/needish-0.0.3/lib/needish/version.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+This is pretty much just a macro for creating a class that allows using a
+block to initialize stuff and to define getters and setters really quickly.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Needish/EasyClassMaker.html" class="link">Needish::EasyClassMaker</a><br />
+Class <a href="Needish/BadResponse.html" class="link">Needish::BadResponse</a><br />
+Class <a href="Needish/Base.html" class="link">Needish::Base</a><br />
+Class <a href="Needish/CantConnect.html" class="link">Needish::CantConnect</a><br />
+Class <a href="Needish/Friend.html" class="link">Needish::Friend</a><br />
+Class <a href="Needish/Help.html" class="link">Needish::Help</a><br />
+Class <a href="Needish/Need.html" class="link">Needish::Need</a><br />
+Class <a href="Needish/UnknownTimeline.html" class="link">Needish::UnknownTimeline</a><br />
+Class <a href="Needish/Untwitterable.html" class="link">Needish::Untwitterable</a><br />
+Class <a href="Needish/User.html" class="link">Needish::User</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

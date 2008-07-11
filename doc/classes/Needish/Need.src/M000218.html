@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>generic_from_xml (Needish::Need)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File pkg/needish-0.0.3/lib/needish/need.rb, line 43</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">generic_from_xml</span>(<span class="ruby-identifier">xml</span>)
+       
+        <span class="ruby-identifier">result</span> = []
+
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;needs&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span>  <span class="ruby-operator">|</span><span class="ruby-identifier">userNeeds</span><span class="ruby-operator">|</span>
+          (<span class="ruby-identifier">userNeeds</span><span class="ruby-operator">/</span><span class="ruby-identifier">:need</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">need</span><span class="ruby-operator">|</span>
+          <span class="ruby-constant">Need</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">id</span>           =     <span class="ruby-identifier">need</span>[<span class="ruby-identifier">:id</span>] 
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">created</span>      =     <span class="ruby-identifier">need</span>[<span class="ruby-identifier">:created</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">city</span>         =     <span class="ruby-identifier">need</span>[<span class="ruby-identifier">:city</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">timediff</span>     =     <span class="ruby-identifier">need</span>[<span class="ruby-identifier">:timediff</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">status</span>       =     <span class="ruby-identifier">need</span>[<span class="ruby-identifier">:status</span>]
+                
+               
+                
+              (<span class="ruby-identifier">need</span><span class="ruby-operator">/</span><span class="ruby-identifier">:subject</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">subject</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">subject</span>     =         <span class="ruby-identifier">subject</span>.<span class="ruby-identifier">inner_html</span>
+              <span class="ruby-keyword kw">end</span>
+              (<span class="ruby-identifier">need</span><span class="ruby-operator">/</span><span class="ruby-identifier">:text</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">u</span>.<span class="ruby-identifier">text</span>     =         <span class="ruby-identifier">text</span>.<span class="ruby-identifier">inner_html</span>
+              <span class="ruby-keyword kw">end</span>
+              
+              
+            <span class="ruby-comment cmt">#si hay attachment</span>
+            <span class="ruby-keyword kw">if</span>(<span class="ruby-identifier">need</span><span class="ruby-operator">/</span><span class="ruby-identifier">:attachment</span>)
+                (<span class="ruby-identifier">need</span><span class="ruby-operator">/</span><span class="ruby-identifier">:attachment</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attch</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">attachment_id</span> = <span class="ruby-identifier">attch</span>[<span class="ruby-identifier">:id</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">attachment_fileurl</span> = <span class="ruby-identifier">attch</span>[<span class="ruby-identifier">:fileurl</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">attachment_type</span> = <span class="ruby-identifier">attch</span>[<span class="ruby-identifier">:type</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">attachment_actualurl</span> = <span class="ruby-identifier">attch</span>[<span class="ruby-identifier">:actualurl</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">attachment_name</span> = (<span class="ruby-identifier">attch</span><span class="ruby-operator">/</span><span class="ruby-identifier">:name</span>).<span class="ruby-identifier">inner_html</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+              
+              <span class="ruby-comment cmt">#cargamos al user para helped si existe</span>
+            <span class="ruby-keyword kw">if</span>(<span class="ruby-identifier">need</span><span class="ruby-operator">/</span><span class="ruby-identifier">:user</span>)
+              (<span class="ruby-identifier">need</span><span class="ruby-operator">/</span><span class="ruby-identifier">:user</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">user_id</span>   =  <span class="ruby-identifier">user</span>[<span class="ruby-identifier">:id</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">user_name</span>   = <span class="ruby-identifier">user</span>[<span class="ruby-identifier">:name</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">user_lastname</span>    = <span class="ruby-identifier">user</span>[<span class="ruby-identifier">:lastname</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">pictureurl</span>   = <span class="ruby-identifier">user</span>[<span class="ruby-identifier">:pictureurl</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">user_nickname</span> = <span class="ruby-identifier">user</span>[<span class="ruby-identifier">:user_nickname</span>]
+                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">biography</span>   = (<span class="ruby-identifier">user</span><span class="ruby-operator">/</span><span class="ruby-identifier">:biography</span>).<span class="ruby-identifier">inner_html</span>
+               <span class="ruby-comment cmt"># u.attachments   = user[:attachments]</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+              
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">u</span>
+           <span class="ruby-keyword kw">end</span>
+         <span class="ruby-keyword kw">end</span> 
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
