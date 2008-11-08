@@ -11,9 +11,6 @@ This Gems provides basic methods to access the Nedish.com api
 lists the user profile, user friends , needs and helps from a need
 sends needs, helps
 
--problems.
-no detected yet!
-
 -todo
 search methods
 make friends etc..
@@ -25,7 +22,7 @@ make friends etc..
 login to needish
 pass to login user and pass AND apikey!! (since 0.0.2)
 
-<pre>login =  Needish::Base.new('miguelmichelson@gmail.com','********' ,'apikey2234455566')</pre>
+<pre>login =  Needish::Base.new('miguelmichelson(at)gmail.com','********' ,'apikey2234455566')</pre>
 
 obtain the user logged data
 
@@ -84,7 +81,7 @@ git clone git://github.com/michelson/needish-gem.git
 
 cd needish-gem
 
-sudo install gem pkg/needish-0.0.1.gem
+sudo gem install pkg/needish-0.0.1.gem
 
 == LICENSE:
 
