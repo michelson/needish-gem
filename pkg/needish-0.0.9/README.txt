@@ -1,6 +1,7 @@
 = needish
 
 * FIX (url)
+ #rake debug_gem > needish.gemspec
 
 == DESCRIPTION:
 
@@ -87,7 +88,7 @@ sudo gem install pkg/needish-0.0.1.gem
 
 (The MIT License)
 
-Copyright (c) 2008 FIXME full name
+Copyright (c) 2008 FIXME Miguel Michelson Martinez
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
