@@ -1,0 +1,9 @@
+--- 
+:rubyforge_project: needish
+:author: "'Miguel Michelson Martinez'"
+:name: needish
+:summary: "' this gem provides simple methods to access the needish.com api'"
+:email: "'miguelmichelson@gmail.com'"
+:has_rdoc: true
+:version: 0.0.1
+:homepage: "'http://animalita.cl/needish-gem'"
