@@ -1,6 +1,3 @@
-(in /Users/miguel/Documents/ruby/needish)
-# -*- encoding: utf-8 -*-
-
 Gem::Specification.new do |s|
   s.name = %q{needish}
   s.version = "0.0.9"
